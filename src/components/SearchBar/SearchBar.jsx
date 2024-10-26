@@ -15,8 +15,8 @@ const SearchBar = ({ onSearch }) => {
         onSearch(image);
 
         form.reset();
-    }
-
+  }
+  
 return (
 <header>
     <div className='search-bar-container'>
