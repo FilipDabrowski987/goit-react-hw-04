@@ -10,7 +10,8 @@ const ACCESS_KEY = "55GPw0K7bd-oQAytDhU3pRCr2Dw7Tzr_28b5bL0corA";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
-  const[images, setImages] = useState([]); 
+  const [images, setImages] = useState([]); 
+  const [loading, setLoading] = useState(false);
 
   const handleSearch = (query) => {
     setSearchQuery(query);
@@ -22,6 +23,7 @@ function App() {
       if (!searchQuery) return;
 
       try {
+        setLoading(true);
         const response = await axios.get(
           `https://api.unsplash.com/search/photos?query=${searchQuery}&per_page=12&client_id=${ACCESS_KEY}`
         );
@@ -29,6 +31,8 @@ function App() {
 
       } catch (error) {
         console.error("Wystąpił błąd podczas pobierania zdjęć:", error);
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -38,7 +42,7 @@ function App() {
   return (
     <>
       <SearchBar onSearch={handleSearch}/>
-      <Loader />
+      {loading && <Loader />}
       <ErrorMessage />
       <ImageGallery images={images}/>
     </>

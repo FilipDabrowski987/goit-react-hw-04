@@ -8,7 +8,7 @@
 
 .image-gallery-item {
     width: calc((100vw - (3 * 15px) - (2 * 15px)) / 4);
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     background-color: #f0f0f0;
     display: flex;
