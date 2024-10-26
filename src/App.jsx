@@ -5,6 +5,7 @@ import SearchBar from './components/SearchBar/SearchBar'
 import Loader from './components/Loader/Loader'
 import ErrorMessage from './components/ErrorMessage/ErrorMessage'
 import LoadMoreButton from './components/LoadMoreBtn/LoadMoreBtn'
+// import ImageModal from './components/ImageModal/ImageModal'
 import axios from "axios";
 
 const ACCESS_KEY = "55GPw0K7bd-oQAytDhU3pRCr2Dw7Tzr_28b5bL0corA";
@@ -60,6 +61,7 @@ function App() {
       {loading && <Loader />}
       {error && <ErrorMessage />}
       <LoadMoreButton onClick={loadMore} />
+      {/* <ImageModal/> */}
     </>
   )
 }

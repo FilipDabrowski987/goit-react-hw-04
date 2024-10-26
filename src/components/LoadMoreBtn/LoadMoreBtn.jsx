@@ -1,3 +1,5 @@
+import "./LoadMoreBtn.css"
+
 const LoadMoreButton = ({ onClick }) => {
     const handleClick = () => {
         console.log('Load more');
@@ -5,9 +7,11 @@ const LoadMoreButton = ({ onClick }) => {
     };
 
     return (
-        <button type="button" onClick={handleClick}>
+        <div className="load-more-button-container">
+        <button className="load-more-button" type="button" onClick={handleClick}>
             Load more
-        </button>
+            </button>
+        </div>
     );
 };
 
