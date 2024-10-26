@@ -1,0 +1,23 @@
+.image-gallery {
+    margin: 10px 15px;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.image-gallery-item {
+    width: calc((100vw - (3 * 15px) - (2 * 15px)) / 4);
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
