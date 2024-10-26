@@ -12,9 +12,11 @@ function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [images, setImages] = useState([]); 
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleSearch = (query) => {
     setSearchQuery(query);
+    setError(false);
   };
 
   useEffect(() => {
@@ -25,12 +27,13 @@ function App() {
       try {
         setLoading(true);
         const response = await axios.get(
-          `https://api.unsplash.com/search/photos?query=${searchQuery}&per_page=12&client_id=${ACCESS_KEY}`
+          `https://api.unsplah.com/search/photos?query=${searchQuery}&per_page=5&client_id=${ACCESS_KEY}`
         );
         setImages(response.data.results);
+        setError(false);
 
       } catch (error) {
-        console.error("Wystąpił błąd podczas pobierania zdjęć:", error);
+        setError(true);
       } finally {
         setLoading(false);
       }
@@ -42,9 +45,9 @@ function App() {
   return (
     <>
       <SearchBar onSearch={handleSearch}/>
+      <ImageGallery images={images} />
+      {error && <ErrorMessage />}
       {loading && <Loader />}
-      <ErrorMessage />
-      <ImageGallery images={images}/>
     </>
   )
 }

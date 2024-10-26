@@ -1,4 +1,7 @@
 const ErrorMessage = () => {
+    return (
+        <p>Upsss... Somthing went wrong!</p>
+    )
     
 }
 
