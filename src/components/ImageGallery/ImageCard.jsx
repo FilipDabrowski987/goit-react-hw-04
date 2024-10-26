@@ -1,9 +1,9 @@
-const ImageCrad = () => {
+const ImageCard = ({ id, small, alt }) => {
     return (
-<div>
-  <img src="" alt="" />
+<div id={id}>
+  <img src={small} alt={alt} />
     </div>
     )
 }
 
-export default ImageCrad
+export default ImageCard

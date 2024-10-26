@@ -1,12 +1,20 @@
-const ImageGallery = () => {
+import ImageCard from "./ImageCard";
+	
+const ImageGallery = ({images}) => {
 return (
-<ul>
-	{/* Zestaw elementów listy z obrazami */}
-	<li>
-		<div>
-		  <img src="" alt="" />
+	<ul>
+		{images.map(image => (
+			<li key={image.id}> 
+				<ImageCard
+					id={image.id}
+					small={image.urls.small}
+					alt={image.alt_description || "Brak opisu"}
+					// small={image.user.profile_image.small}
+				/>
+			<div>
 		</div>
-	</li>
+		</li>
+	))}
 </ul>
     )
 }
