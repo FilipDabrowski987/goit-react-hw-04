@@ -1,5 +1,9 @@
 import './SearchBar.css'
 import { BsSearch } from "react-icons/bs";
+import toast, { Toaster } from 'react-hot-toast';
+
+
+const notify = () => toast('Here is your toast.');
 
 const SearchBar = ({ onSearch }) => {
     const handleSubmit = (event) => {
@@ -7,8 +11,9 @@ const SearchBar = ({ onSearch }) => {
         const form = event.target;
         const image = form.elements.image.value;
 
-        if (form.elements.image.value.trim() === "") {
-			alert("Wpisz frazę do wyszukania")
+      if (form.elements.image.value.trim() === "") {
+        { notify }
+        <Toaster />
             return;
         }
 

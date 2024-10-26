@@ -23,9 +23,8 @@ function App() {
 
       try {
         const response = await axios.get(
-          `https://api.unsplash.com/search/photos?query=${searchQuery}&client_id=${ACCESS_KEY}`
+          `https://api.unsplash.com/search/photos?query=${searchQuery}&per_page=12&client_id=${ACCESS_KEY}`
         );
-        console.log(response.data.results);
         setImages(response.data.results);
 
       } catch (error) {
