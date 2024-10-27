@@ -54,7 +54,6 @@ function App() {
     setPage((prevPage) => prevPage + 1);
   };
 
- // eslint-disable-next-line no-unused-vars
  const handleImageClick = (image) => {
    setIsModalOpen(true);
    setSelctedImage(image);

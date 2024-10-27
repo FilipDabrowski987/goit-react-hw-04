@@ -8,9 +8,9 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    backgroundColor: '#fff',
-    padding: '20px',
-    borderRadius: '10px',
+    backgroundColor: 'transparent',
+    padding: '0',
+    border: 'none',
     maxWidth: '90vw',
     maxHeight: '90vh',
     overflow: 'auto',
@@ -22,7 +22,7 @@ const customStyles = {
 
 Modal.setAppElement('#root');
 
-function ImageModal({ isOpen, onRequestClose }) {
+function ImageModal({ isOpen, onRequestClose, image }) {
   return (
     <Modal
       isOpen={isOpen}
@@ -32,12 +32,18 @@ function ImageModal({ isOpen, onRequestClose }) {
       shouldCloseOnOverlayClick={true}
       shouldCloseOnEsc={true}
     >
-      <div style={{ textAlign: 'center' }}>Modal content here</div>
-      <button onClick={onRequestClose} style={{ marginTop: '10px', padding: '5px 10px' }}>
-        Close
-      </button>
+      {image ? (
+        <div style={{ textAlign: 'center' }}>
+          <img src={image.urls.regular} alt={image.alt_description || "Image"} style={{ maxWidth: '100%', maxHeight: '80vh' }} />
+        </div>
+      ) : (
+        <div>No image selected</div>
+      )}
     </Modal>
   );
 }
 
 export default ImageModal;
+
+
+
