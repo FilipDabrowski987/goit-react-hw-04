@@ -17,6 +17,7 @@ function App() {
   const [error, setError] = useState(false);
   const [page, setPage] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelctedImage] = useState(false);
 
   const handleSearch = (query) => {
     setSearchQuery(query);
@@ -55,11 +56,13 @@ function App() {
 
  // eslint-disable-next-line no-unused-vars
  const handleImageClick = (image) => {
-    setIsModalOpen(true);
+   setIsModalOpen(true);
+   setSelctedImage(image);
  };
   
  const closeModal = () => {
-    setIsModalOpen(false);
+   setIsModalOpen(false);
+   setSelctedImage()
   };
 
   return (
@@ -69,7 +72,7 @@ function App() {
       {loading && <Loader />}
       {error && <ErrorMessage />}
       <LoadMoreButton onClick={loadMore} />
-      <ImageModal isOpen={isModalOpen} onRequestClose={closeModal}/>
+      <ImageModal isOpen={isModalOpen} onRequestClose={closeModal} image={selectedImage}/>
     </>
   )
 }
