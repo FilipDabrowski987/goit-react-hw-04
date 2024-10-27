@@ -1,11 +1,11 @@
 import ImageCard from "./ImageCard";
 import "./ImageGallery.css"
 	
-const ImageGallery = ({images}) => {
+const ImageGallery = ({images, onImageClick}) => {
 return (
 	<ul className="image-gallery">
 		{images.map(image => (
-			<li key={image.id}> 
+			<li key={image.id} onClick={onImageClick}> 
 				<ImageCard
 					id={image.id}
 					small={image.urls.small}

@@ -5,7 +5,7 @@ import SearchBar from './components/SearchBar/SearchBar'
 import Loader from './components/Loader/Loader'
 import ErrorMessage from './components/ErrorMessage/ErrorMessage'
 import LoadMoreButton from './components/LoadMoreBtn/LoadMoreBtn'
-// import ImageModal from './components/ImageModal/ImageModal'
+import ImageModal from './components/ImageModal/ImageModal'
 import axios from "axios";
 
 const ACCESS_KEY = "55GPw0K7bd-oQAytDhU3pRCr2Dw7Tzr_28b5bL0corA";
@@ -16,6 +16,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [page, setPage] = useState(1);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSearch = (query) => {
     setSearchQuery(query);
@@ -52,16 +53,23 @@ function App() {
     setPage((prevPage) => prevPage + 1);
   };
 
-
+ // eslint-disable-next-line no-unused-vars
+ const handleImageClick = (image) => {
+    setIsModalOpen(true);
+ };
+  
+ const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <>
       <SearchBar onSearch={handleSearch}/>
-      <ImageGallery images={images} />
+      <ImageGallery images={images} onImageClick={handleImageClick} />
       {loading && <Loader />}
       {error && <ErrorMessage />}
       <LoadMoreButton onClick={loadMore} />
-      {/* <ImageModal/> */}
+      <ImageModal isOpen={isModalOpen} onRequestClose={closeModal}/>
     </>
   )
 }
