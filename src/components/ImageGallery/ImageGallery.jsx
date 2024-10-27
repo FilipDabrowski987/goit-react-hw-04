@@ -11,8 +11,6 @@ return (
 					small={image.urls.small}
 					alt={image.alt_description || "Brak opisu"}
 				/>
-			<div>
-		</div>
 		</li>
 	))}
 </ul>

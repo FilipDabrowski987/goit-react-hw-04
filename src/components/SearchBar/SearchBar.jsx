@@ -1,10 +1,7 @@
-import './SearchBar.css'
 import { BsSearch } from "react-icons/bs";
 import { BsExclamationTriangle } from "react-icons/bs";
 import toast, { Toaster } from 'react-hot-toast';
-
-
-// const notify = () => toast('Here is your toast.');
+import './SearchBar.css'
 
 const SearchBar = ({ onSearch }) => {
     const handleSubmit = (event) => {

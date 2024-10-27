@@ -2,7 +2,6 @@ import "./LoadMoreBtn.css"
 
 const LoadMoreButton = ({ onClick }) => {
     const handleClick = () => {
-        console.log('Load more');
         onClick();
     };
 

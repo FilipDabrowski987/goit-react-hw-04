@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import './App.css'
 import ImageGallery from './components/ImageGallery/ImageGallery'
 import SearchBar from './components/SearchBar/SearchBar'
 import Loader from './components/Loader/Loader'
@@ -7,6 +6,7 @@ import ErrorMessage from './components/ErrorMessage/ErrorMessage'
 import LoadMoreButton from './components/LoadMoreBtn/LoadMoreBtn'
 import ImageModal from './components/ImageModal/ImageModal'
 import axios from "axios";
+import './App.css'
 
 const ACCESS_KEY = "55GPw0K7bd-oQAytDhU3pRCr2Dw7Tzr_28b5bL0corA";
 
@@ -17,7 +17,7 @@ function App() {
   const [error, setError] = useState(false);
   const [page, setPage] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedImage, setSelctedImage] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(false);
 
   const handleSearch = (query) => {
     setSearchQuery(query);
@@ -56,12 +56,12 @@ function App() {
 
  const handleImageClick = (image) => {
    setIsModalOpen(true);
-   setSelctedImage(image);
+   setSelectedImage(image);
  };
   
  const closeModal = () => {
    setIsModalOpen(false);
-   setSelctedImage()
+   setSelectedImage(null)
   };
 
   return (

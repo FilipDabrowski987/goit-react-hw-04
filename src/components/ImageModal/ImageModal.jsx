@@ -34,7 +34,7 @@ function ImageModal({ isOpen, onRequestClose, image }) {
     >
       {image ? (
         <div style={{ textAlign: 'center' }}>
-          <img src={image.urls.regular} alt={image.alt_description || "Image"} style={{ maxWidth: '100%', maxHeight: '80vh' }} />
+          <img src={image.urls.regular} alt={image.alt_description || "Image"} style={{ maxWidth: '100%', maxHeight: '80vh', borderRadius: '5px' }} />
         </div>
       ) : (
         <div>No image selected</div>
@@ -44,6 +44,3 @@ function ImageModal({ isOpen, onRequestClose, image }) {
 }
 
 export default ImageModal;
-
-
-
